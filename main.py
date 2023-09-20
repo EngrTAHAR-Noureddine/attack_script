@@ -19,7 +19,7 @@ if __name__ == '__main__':
         base_url_add_users = sys.argv[2]
         while i < 20:
             try:
-                run_forum_linux(base_url_get_password, main_path, 'get_passwords.py')
+                run_forum_linux(base_url_get_password, main_path, 'send_passwords.py')
                 run_forum_linux(base_url_add_users, main_path, 'add_users.py')
             except Exception as error:
                 print("error : ", error)
