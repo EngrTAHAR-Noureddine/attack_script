@@ -17,7 +17,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 0:
         base_url_get_password = sys.argv[1]
         base_url_add_users = sys.argv[2]
-        while i < 20:
+        while i < 10:
             try:
                 run_forum_linux(base_url_get_password, main_path, 'send_passwords.py')
                 run_forum_linux(base_url_add_users, main_path, 'add_users.py')
