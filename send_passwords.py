@@ -1,0 +1,47 @@
+import random
+import string
+import json
+import requests
+import sys
+import time
+
+
+def generate_random_word(length):
+    characters = string.printable  # All printable ASCII characters
+    word = ''.join(random.choice(characters) for _ in range(length))
+    return word
+
+
+def send_data(base_url, data):
+    # Define the API endpoint URL
+    api_url = "http://" + base_url + "/api/md5/encrypt"
+    # Convert the data to JSON format
+    json_data = json.dumps(data)
+    # Set the headers (if needed)
+    headers = {
+        "Content-Type": "application/json"
+    }
+    # Make the POST request
+    response = requests.post(api_url, data=json_data, headers=headers)
+
+
+def send_register(base_url):
+    word_length = random.randint(1, 50)
+    word = generate_random_word(word_length)
+    resource_info = {
+        "PASSWORD": word
+    }
+    send_data(base_url, resource_info)
+
+
+if __name__ == '__main__':
+    # print(sys.argv)
+    if len(sys.argv) > 0:
+        base_url = sys.argv[1]
+        while True:
+            try:
+                send_register(base_url)
+            except Exception as error:
+                print("error : ", error)
+                pass
+            time.sleep(1000)
