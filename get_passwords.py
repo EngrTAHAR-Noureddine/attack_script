@@ -36,6 +36,7 @@ if __name__ == '__main__':
         base_url = sys.argv[1]
         while True:
             try:
+                print("get password...")
                 send_request(base_url)
             except Exception as error:
                 print("error : ", error)

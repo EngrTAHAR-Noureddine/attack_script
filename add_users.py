@@ -41,6 +41,7 @@ if __name__ == '__main__':
         base_url = sys.argv[1]
         while True:
             try:
+                print("Send user...")
                 send_register(base_url)
             except Exception as error:
                 print("error : ", error)
